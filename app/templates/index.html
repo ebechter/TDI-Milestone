@@ -1,0 +1,30 @@
+<!doctype html>
+ <head lang="en">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="A Heroku application displaying stock price for the last month.">
+    <meta name="author" content="@ebechter">
+<title>TDI Milestone</title>
+<!-- <link rel=stylesheet type=text/css href='{{ url_for('static',filename='mystyle.css')}}'> -->
+<div class=page>
+  <h1>Stock Ticker</h1>
+
+  <div class=metanav>
+
+      <form id='input' method='post' action='index' >
+        <p> Please enter a stock ticker, e.g. FB, AAPL, GOOG.</p>
+        <p> <strong>Ticker Symbol:</strong> <input type='text' name='ticker' /> </p>
+ 
+        <!--<p>Enter the month: <input type='month', value="2014-01", name='year_month' /> </p>  -->
+         Optional: enter a start and end date.
+        <p>  Start date: <input type="date" name="start_date" value="2017-01-01"></p>
+        <p>  End date: <input type="date" name="end_date" value="2018-01-01"></p>
+        <p>  <input type='submit' value='Submit' /></p>
+        
+      </form>
+    
+  </div>
+</div>
+
+
+
