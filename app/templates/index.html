@@ -12,13 +12,16 @@
   <div class=metanav>
 
       <form id='input' method='post' action='index' >
-        <p> Please enter a stock ticker, e.g. FB, AAPL, GOOG.</p>
-        <p> <strong>Ticker Symbol:</strong> <input type='text' name='ticker' /> </p>
+        <p> Please enter a stock ticker, e.g. AAPL, GOOG.</p>
+        <p> <strong>Ticker Symbol:</strong> <input type='text' name='ticker' value="GOOG" /> </p>
  
-        <!--<p>Enter the month: <input type='month', value="2014-01", name='year_month' /> </p>  -->
-         Optional: enter a start and end date.
+        Optional: select a month.
+        <p>Month : <input type='month', value="2014-01", name='year_month' /> </p>  
+
+
+         <!-- Optional: enter a start and end date.
         <p>  Start date: <input type="date" name="start_date" value="2017-01-01"></p>
-        <p>  End date: <input type="date" name="end_date" value="2018-01-01"></p>
+        <p>  End date: <input type="date" name="end_date" value="2018-01-01"></p> -->
         <p>  <input type='submit' value='Submit' /></p>
         
       </form>

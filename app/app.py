@@ -18,16 +18,16 @@ app = Flask(__name__)
 app.vars={}
 
 
-# def add_one_month(dt0):
-#     temp = datetime(dt0.year, dt0.month, dt0.day) + timedelta(days=32)
-#     next_month = datetime(temp.year, temp.month, dt0.day)
-#     return next_month
+def add_one_month(dt0):
+    temp = datetime(dt0.year, dt0.month, dt0.day) + timedelta(days=32)
+    next_month = datetime(temp.year, temp.month, dt0.day)
+    return next_month
 
-def plot_closing_price(ticker='GOOG',start_date='2014-01-01',end_date='2017-01-01'):
+def plot_closing_price(ticker='GOOG',year_month='2014-01'):
     API_key = 'xT9VhtodYJ7fzaKqVDby'
-    # tmp = datetime.strptime(year_month, '%Y-%m')
-    # start_date = datetime(tmp.year,tmp.month,1)
-    # end_date = add_one_month(start_date)
+    tmp = datetime.strptime(year_month, '%Y-%m')
+    start_date = datetime(tmp.year,tmp.month,1)
+    end_date = add_one_month(start_date)
     data = Qd.get('WIKI/%s' %ticker, trim_start = start_date, trim_end = end_date , authtoken=API_key)
     keep =['Adj. High','Adj. Low','Adj. Close','Adj. Volume']
     df = pd.DataFrame(data)
@@ -56,9 +56,15 @@ def index():
     else:
         #request was a POST
         ticker = request.form['ticker']
-        start_date = request.form['start_date']
-        end_date = request.form['end_date']
-        plot = plot_closing_price(ticker,start_date,end_date)
+
+        # 1 month version. 
+        month = request.form['year_month']
+        plot = plot_closing_price(ticker,month)
+
+        # A normal date selector instead of 1 month.
+        # start_date = request.form['start_date']
+        # end_date = request.form['end_date']
+        # plot = plot_closing_price(ticker,start_date,end_date)
 
         script, div = components(plot)       
         return render_template('plotpage.html', script=script, div=div)
