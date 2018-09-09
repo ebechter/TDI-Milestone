@@ -23,7 +23,7 @@ def add_one_month(dt0):
     next_month = datetime(temp.year, temp.month, dt0.day)
     return next_month
 
-def plot_closing_price(ticker='GOOG',year_month='2014-01'):
+def plot_closing_price(ticker='GOOG',year_month='2018-01'):
     API_key = 'xT9VhtodYJ7fzaKqVDby'
     tmp = datetime.strptime(year_month, '%Y-%m')
     start_date = datetime(tmp.year,tmp.month,1)
